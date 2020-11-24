@@ -2,8 +2,8 @@
 from unittest import TestCase
 # Third-Party Imports
 # Project Imports
-from exceptions import base_exceptions
-from exceptions.builtin_exceptions import BuiltinTransformableException
+from core_exceptions import base_exceptions
+from core_exceptions.wrapped_exceptions import WrappedTransformableException
 
 
 class TestBaseTransformableException(TestCase):
@@ -117,7 +117,7 @@ class TestBaseTransformableException(TestCase):
     def test_transform_without_transform_handlers(self):
         with self.assertRaises(base_exceptions.BaseTransformableException) as error:
             base_exceptions.BaseTransformableException().transform()
-        self.assertIs(type(error.exception), BuiltinTransformableException)
+        self.assertIs(type(error.exception), WrappedTransformableException)
 
     def test_str(self):
         def test_transform_handler(transformable_exception: base_exceptions.BaseTransformableException) -> dict:

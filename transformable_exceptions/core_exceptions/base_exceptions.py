@@ -19,7 +19,7 @@ class BaseTransformableException(Exception):
         return self._transform_handler or self.__class__.DEFAULT_TRANSFORM_HANDLER
 
     @transform_handler.setter
-    def transform_handler(self, transform_handler: Optional[TransformHandler]):
+    def transform_handler(self, transform_handler: Optional[TransformHandler]) -> None:
         self._transform_handler = transform_handler
 
     def transform(self, transform_handler: Optional[TransformHandler] = None) -> TransformType:
@@ -27,12 +27,11 @@ class BaseTransformableException(Exception):
         try:
             return handler(self)
         except TypeError as error:
-            from exceptions.builtin_exceptions import BuiltinTransformableException
-            raise BuiltinTransformableException(builtin_exception=error)
+            from core_exceptions.wrapped_exceptions import WrappedTransformableException
+            raise WrappedTransformableException(wrapped_exception=error)
 
     def __str__(self) -> str:
-        instance_string_representation: dict = {"transform_handler": self.transform_handler}
-        return str(instance_string_representation)
+        return str({"transform_handler": self.transform_handler})
 
     def __repr__(self) -> str:
         return f"<{self.__class__.__name__} ({self})>"

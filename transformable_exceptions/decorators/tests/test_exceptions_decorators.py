@@ -3,8 +3,8 @@ from unittest import TestCase
 # Third-Party Imports
 # Project Imports
 from decorators import exceptions_decorators
-from exceptions.base_exceptions import BaseTransformableException
-from exceptions.builtin_exceptions import BuiltinTransformableException
+from core_exceptions.base_exceptions import BaseTransformableException
+from core_exceptions.wrapped_exceptions import WrappedTransformableException
 
 
 class TestExceptionDecorators(TestCase):
@@ -34,6 +34,6 @@ class TestExceptionDecorators(TestCase):
         def function():
             raise BaseTransformableException()
 
-        with self.assertRaises(BuiltinTransformableException) as error:
+        with self.assertRaises(WrappedTransformableException) as error:
             function()
-        assert isinstance(error.exception.builtin_exception, TypeError)
+        assert isinstance(error.exception.wrapped_exception, TypeError)
