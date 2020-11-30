@@ -2,7 +2,7 @@
 from typing import Optional
 # Third-Party Imports
 # Project Imports
-from handlers.handlers_typing import Handler, HandlerReturn
+from flexceptions.handlers.handlers_typing import Handler, HandlerReturn
 
 
 class BaseFlexception(Exception):

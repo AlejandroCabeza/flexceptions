@@ -2,8 +2,8 @@
 from unittest import TestCase
 # Third-Party Imports
 # Project Imports
-from core_exceptions import base_exceptions
-from core_exceptions.wrapped_exceptions import WrappedFlexception
+from flexceptions.core_exceptions import base_exceptions
+from flexceptions.core_exceptions.wrapped_exceptions import WrappedFlexception
 
 
 class TestBaseFlexception(TestCase):

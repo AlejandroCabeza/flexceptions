@@ -3,8 +3,8 @@ from functools import wraps
 from typing import Callable, Optional
 # Third-Party Imports
 # Project Imports
-from handlers.handlers_typing import Handler, HandlerReturn
-from core_exceptions.base_exceptions import BaseFlexception
+from flexceptions.handlers.handlers_typing import Handler, HandlerReturn
+from flexceptions.core_exceptions.base_exceptions import BaseFlexception
 
 
 def handle_flexception(handler: Optional[Handler] = None) -> Callable:

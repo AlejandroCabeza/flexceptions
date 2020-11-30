@@ -2,7 +2,7 @@
 from unittest import TestCase
 # Third-Party Imports
 # Project Imports
-from core_exceptions import wrapped_exceptions
+from flexceptions.core_exceptions import wrapped_exceptions
 
 
 class TestWrappedFlexception(TestCase):

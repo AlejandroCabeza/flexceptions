@@ -2,9 +2,9 @@
 from unittest import TestCase
 # Third-Party Imports
 # Project Imports
-from decorators import exceptions_decorators
-from core_exceptions.base_exceptions import BaseFlexception
-from core_exceptions.wrapped_exceptions import WrappedFlexception
+from flexceptions.decorators import exceptions_decorators
+from flexceptions.core_exceptions.base_exceptions import BaseFlexception
+from flexceptions.core_exceptions.wrapped_exceptions import WrappedFlexception
 
 
 class TestExceptionDecorators(TestCase):

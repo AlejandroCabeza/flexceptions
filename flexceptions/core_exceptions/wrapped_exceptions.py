@@ -1,7 +1,7 @@
 # Python Imports
 # Third-Party Imports
 # Project Imports
-from core_exceptions.base_exceptions import BaseFlexception
+from flexceptions.core_exceptions.base_exceptions import BaseFlexception
 
 
 class WrappedFlexception(BaseFlexception):

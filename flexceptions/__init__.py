@@ -1,6 +1,6 @@
 # Python Imports
 # Third-Party Imports
 # Project Imports
-from .core_exceptions.base_exceptions import BaseFlexception
-from .core_exceptions.wrapped_exceptions import WrappedFlexception
-from .decorators.exceptions_decorators import handle_flexception
+from flexceptions.core_exceptions.base_exceptions import BaseFlexception
+from flexceptions.core_exceptions.wrapped_exceptions import WrappedFlexception
+from flexceptions.decorators.exceptions_decorators import handle_flexception
