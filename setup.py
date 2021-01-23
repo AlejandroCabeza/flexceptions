@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="Flexceptions",
-    version="0.1.2",
+    version="0.1.3",
     description="Python Flexible Exceptions Library",
     author="Alejandro Cabeza Romero",
     author_email="alex@alexcabeza.io",

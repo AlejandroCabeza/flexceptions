@@ -27,7 +27,7 @@ class BaseFlexception(Exception):
         try:
             return handler(self)
         except TypeError as error:
-            from core_exceptions.wrapped_exceptions import WrappedFlexception
+            from flexceptions import WrappedFlexception
             raise WrappedFlexception(wrapped_exception=error)
 
     def __str__(self) -> str:
