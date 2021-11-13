@@ -42,3 +42,38 @@ There's a priority hierarchy to know what handler to use:
 # Installation
 
 `pip install flexceptions`
+
+# Usage Examples
+
+### API Error Handling
+One use case I like abstracting with this library is an exception hierarchy system that is castable to an HTTP Response object. Then, by decorating views with `handle_flexception`, every raised Flexception will have its `handle` method called, ensuring a proper object is sent back.
+
+It's also worth to mention that the `handle_flexception` decorator accepts a `handler` that is passed on to the `handle` method. 
+```python
+from typing import Dict
+from flexceptions import BaseFlexception, Handler, handle_flexception
+
+
+class Request:
+  ...
+
+class Response:
+  ...
+
+
+def _transform_to_http_response(exception: "MyApiException") -> Response:
+  return Response(status_code=exception.status_code, json=exception.json)
+
+
+class MyApiException(BaseFlexception):
+    DEFAULT_HANDLER: Handler = _transform_to_http_response
+
+    def __init__(self, status_code: int = 400, json: Dict = None) -> None:
+        self.status_code: int = status_code
+        self.json: Dict = json or dict()
+
+
+@handle_flexception
+def view(request: Request) -> Response:
+    ...
+```
