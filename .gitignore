@@ -7,3 +7,5 @@ build/
 dist/
 *.ignore*
 *.egg-info
+.coverage
+coverage_html_report
